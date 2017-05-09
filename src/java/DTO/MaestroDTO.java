@@ -11,7 +11,7 @@ package DTO;
  */
 public class MaestroDTO {
 
-     private int id_empleado;
+    private int id_empleado;
     private String nombreCompleto;
    
     private String correo;
@@ -45,4 +45,6 @@ public class MaestroDTO {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+  
 }

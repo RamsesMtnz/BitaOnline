@@ -186,13 +186,13 @@
         </li>
 
         <li class="treeview">
-          <a href="#"><i class="fa fa-fw fa-stethoscope"></i><span>Alumnos</span>
+          <a href="#"><i class="fa fa-fw fa-stethoscope"></i><span>Materias</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Lista</a></li>
+            <li><a href="Materia.jsp">Asignar Materia a Maestro</a></li>
           </ul>
         </li>
          <li class="treeview">
@@ -202,10 +202,10 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Reporte General</a></li>
-            <li><a href="#">Reporte por Clinica</a></li>
-            <li><a href="#">Reporte por Fecha</a></li>
-            <li><a href="#">Reporte por Clinica y Fecha</a></li>
+           <li><a href="ReporteGeneral.jsp">Reporte General</a></li>
+            <li><a href="ReporteClinica.jsp">Reporte por Clinica</a></li>
+            <li><a href="ReporteFecha.jsp">Reporte por Fecha</a></li>
+            <li><a href="ReporteFechaClinica.jsp">Reporte por Clinica y Fecha</a></li>
           </ul>
         </li>
 

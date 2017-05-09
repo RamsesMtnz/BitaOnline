@@ -12,6 +12,10 @@
         <servlet-name>ServletEncargado</servlet-name>
         <servlet-class>Controlador.ServletEncargado</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletMaterias</servlet-name>
+        <servlet-class>Controlador.ServletMaterias</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletSesion</servlet-name>
         <url-pattern>/ServletSesion</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>ServletEncargado</servlet-name>
         <url-pattern>/ServletEncargado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletMaterias</servlet-name>
+        <url-pattern>/ServletMaterias</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

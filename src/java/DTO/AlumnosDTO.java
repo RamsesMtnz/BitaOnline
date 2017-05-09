@@ -3,31 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package DTO;
 
 /**
- * 
+ *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public class AlumnosDTO {
-    
-    private int folio;
-    private int matricula;
-    private String nombre;
-    private String tratamientos;
-    private String comentarios;
 
-    public AlumnosDTO(int folio, int matricula, String nombre, String tratamientos, String comentarios) {
+    private int folio;
+    private int alumno;
+    private int tratamiento;
+    private String comentario;
+
+    public AlumnosDTO(int folio, int alumno, int tratamiento, String comentario) {
         this.folio = folio;
-        this.matricula = matricula;
-        this.nombre = nombre;
-        this.tratamientos = tratamientos;
-        this.comentarios = comentarios;
+        this.alumno = alumno;
+        this.tratamiento = tratamiento;
+        this.comentario = comentario;
     }
 
-    
-    
     public int getFolio() {
         return folio;
     }
@@ -36,37 +31,29 @@ public class AlumnosDTO {
         this.folio = folio;
     }
 
-    public int getMatricula() {
-        return matricula;
+    public int getAlumno() {
+        return alumno;
     }
 
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
+    public void setAlumno(int alumno) {
+        this.alumno = alumno;
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getTratamiento() {
+        return tratamiento;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTratamiento(int tratamiento) {
+        this.tratamiento = tratamiento;
     }
 
-    public String getTratamientos() {
-        return tratamientos;
+    public String getComentario() {
+        return comentario;
     }
 
-    public void setTratamientos(String tratamientos) {
-        this.tratamientos = tratamientos;
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 
-    public String getComentarios() {
-        return comentarios;
-    }
-
-    public void setComentarios(String comentarios) {
-        this.comentarios = comentarios;
-    }
-   
-
+    
 }

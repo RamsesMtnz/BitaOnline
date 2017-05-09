@@ -1,16 +1,16 @@
 <%-- 
-    Document   : AgregarEncargadaClinica
-    Created on : 8/05/2017, 04:04:19 PM
+    Document   : ReporteGeneral
+    Created on : 9/05/2017, 02:05:39 PM
     Author     : Sammy Guergachi <sguergachi at gmail.com>
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+     <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Nueva Encargada de Clinica</title>
+  <title>Nuevo Maestro</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -160,7 +160,7 @@
         <li class="header">INICIO</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="treeview">
-          <a href="#"><i class="glyphicon glyphicon-user"></i> <span>Maestros</span>
+          <a href="mtro.htm"><i class="glyphicon glyphicon-user"></i> <span>Maestros</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -172,7 +172,7 @@
           </ul>
         </li>
 
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#"><i class="fa fa-fw fa-user-md"></i> <span>Encargados de clinica</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -192,17 +192,17 @@
             </span>
           </a>
           <ul class="treeview-menu">
-             <li><a href="Materia.jsp">Asignar Materia a Maestro</a></li>>
+            <li><a href="Materia.jsp">Asignar Materia a Maestro</a></li>
           </ul>
         </li>
-         <li class="treeview">
+         <li class="treeview active">
           <a href="#"><i class="fa fa-fw fa-file-text-o"></i> <span>Reportes</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="ReporteGeneral.jsp">Reporte General</a></li>
+           <li><a href="ReporteGeneral.jsp">Reporte General</a></li>
             <li><a href="ReporteClinica.jsp">Reporte por Clinica</a></li>
             <li><a href="ReporteFecha.jsp">Reporte por Fecha</a></li>
             <li><a href="ReporteFechaClinica.jsp">Reporte por Clinica y Fecha</a></li>
@@ -236,179 +236,49 @@
     <section class="content">
 <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">Nueva Encargada de Clinica</h3>
+              <h3 class="box-title">Nuevo Maestro</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-          <div class="row">
-                
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
+               <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                        
                         <div class="panel-body">
-                            <form action="../ServletEncargado" method="post">
-                            <div class="row">
+                           <form action="../GeneralPDF.jsp" method="post">
+                           <h5>   A continuacion generara un reporte completo analizando los datos de la
+                                facultad de Odontologia desde que se implemento esta pagina en la misma </h5>
+                             <div class="row">
                                 <div class="col-md-4">                    
                                 
                                 <div class="form-group">
-                                    <label for="id_empleado">Id Empleado:</label>
-                                    <input type="text" name="id_empleado" maxlength="30" id="idEmpleado" class="form-control" >
+                                    <br>
+                                   <button type="submit" class="btn btn-default" >Generar</button>
                                 </div>
                                 
                             
                                 </div>  
-
-                                 <div class="col-md-4">                    
-                                
-                                 <div class="form-group">
-                                    <label for="nombre">Nombre:</label>
-                                    <input type="text" name="nombre" maxlength="30" id="idEmpleado" class="form-control" >
-                                </div>  
-                                
+                                 
+                                 
+                             </div>
                             
-                                </div> 
-
-                                <div class="col-md-4">                    
-                                
-                                 <div class="form-group">
-                                    <label for="apelldioP">Apellido Paterno:</label>
-                                    <input type="text" name="apellido_paterno" maxlength="30" id="apellidoP" class="form-control" >
-                                </div>  
-                                
+                        <!-- /.panel-body -->
+                        </form>
                             
-                                </div> 
-
-                                 <div class="col-md-4">                    
-                                
-                               
-                                     <div class="form-group">
-                                    <label for="apelldioM">Apellido Materno:</label>
-                                    <input type="text" name="apellido_materno" maxlength="30" id="apellidoM" class="form-control" >
-                                </div> 
-                                
-                                
                             
-                                </div> 
-
-                                <div class="col-md-4">                    
-                                
-                                 <div class="form-group">
-                                    <label for="usuario">Usuario:</label>
-                                    <input type="text" name="usuario" maxlength="30" id="usuario" class="form-control" >
-                                </div>  
-                                
-                            
-                                </div>   
-
-                                  <div class="col-md-4">                    
-                                
-                                 <div class="form-group">
-                                    <label for="contraseña">Contraseña:</label>
-                                    <input type="text" name="contrasena" maxlength="30" id="contraseña" class="form-control" >
-                                </div>  
-                                
-                            
-                                </div> 
-
-                                <div class="col-md-4">                    
-                                
-                                 <div class="form-group">
-                                    <label for="clinica">Clinica:</label>
-                                   <select class="form-control" name="clinica" id="sel1">
-                                        <option>Clinica 1</option>
-                                        <option>Clinica 2</option>
-                                        <option>Clinica 3</option>
-                                       
-                                  </select>
-
-                                </div>  
-                                    
-                                
-                            
-                                </div> 
-                                
-                                 <div class="col-md-4">                    
-                                
-                                 <div class="form-group">
-                                    <label for="turno">Turno</label>
-                                   <select class="form-control" name="turno" id="sel1">
-                                        <option>Matutino</option>
-                                        <option>Vespertino</option>
-                                      
-                                       
-                                  </select>
-
-                                </div>  
-                                    
-                                
-                            
-                                </div> 
-                                
-                                
-                                
-                                
-
-                                 <div class="col-md-2">                    
-                                
-                                 <div class="form-group">
-                                   <br>
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-
-                                </div>  
-                                
-                            
-                                </div> 
-
-                       
-                                <!-- /.col-lg-6 (nested) -->
-                               
-                                <!-- /.col-lg-6 (nested) -->
-                            </div>
-                                
-                                </form>
                             <!-- /.row (nested) -->
                         </div>
+                        
                         <!-- /.panel-body -->
                     </div>
+                    
                     <!-- /.panel -->
                 </div>
+                   
+                   
                 <!-- /.col-lg-12 -->
             </div>
-<%String validar=(String)session.getAttribute("validar");%>
- 
-                                        <%
-                                
-                               
-                                if(validar!=null && validar.equals("Registro Exitoso")){
-                                     %>
-                                     <div class="alert alert-success alert-dismissable fade in">
-                                          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                         <strong>
-                                             <%=validar%>
-                                         </strong>
-                                     </div>
-                                  <%
-                                }
-                               %>
-                                <%
-                                
-                               
-                                if(validar!=null && validar.equals("Error")){
-                                    
-                                     %>
-                                     <div class="alert alert-danger alert-dismissable fade in">
-                                          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                         <strong>
-                                             <%=validar%>
-                                         </strong>
-                                     </div>
-                                  <%
-                                }
-                               %>
+
             </div>
             
             <!-- /.box-body -->

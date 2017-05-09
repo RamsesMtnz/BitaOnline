@@ -24,7 +24,7 @@ public class Metodos {
 		boolean respuesta = false;
 		
                 try{
-                   String query="DELETE FROM Maestro2 where id_empleado="+id_empleado+" ";
+                   String query="DELETE FROM Maestro where id_empleado="+id_empleado+" ";
                    Connection conexion = Conexionsql.Conexion();
                    Statement st=null;
                    st=conexion.createStatement();
@@ -106,7 +106,7 @@ public class Metodos {
 		try{
              Connection conexion = Conexionsql.Conexion();
              pst = conexion.createStatement();
-             rs = pst.executeQuery("select tratamiento from tratamientos where id_tratamiento="+id_menu);
+             rs = pst.executeQuery("select tratamiento from area_tratamientos where area="+id_menu);
               while(rs.next()){
                     resultado=rs.getString("tratamiento");
                 }
@@ -128,9 +128,9 @@ public class Metodos {
 		try{
              Connection conexion = Conexionsql.Conexion();
              pst = conexion.createStatement();
-             rs = pst.executeQuery("select menu_tratamientos from menu_tratamientos where id_menu="+id_tratamiento);
+             rs = pst.executeQuery("select name_tratamiento from menu_tratamientos where contador="+id_tratamiento);
               while(rs.next()){
-                    tratamiento=rs.getString("menu_tratamientos");
+                    tratamiento=rs.getString("name_tratamiento");
                 }
          }catch(SQLException ex){
              
@@ -140,10 +140,31 @@ public class Metodos {
 		
 		return tratamiento;
 	}
+         
+         public String obtenerNombreMaestro(int matricula) 
+			{
+         Statement pst = null;
+         ResultSet rs = null;
+		
+		try{
+             Connection conexion = Conexionsql.Conexion();
+             pst = conexion.createStatement();
+             rs = pst.executeQuery("select nombre_completo from Maestro2 where id_empleado="+matricula);
+              while(rs.next()){
+                    resultado=rs.getString("nombre_completo");
+                }
+         }catch(SQLException ex){
+             
+         }
+
+		
+		
+		return resultado;
+	}
       
     
     public static void main(String args[]){
         Metodos metodo = new Metodos();
-        System.out.print(metodo.obtenerTratamiento(9));
+        System.out.print(metodo.obtenerNombreMaestro(32923));
     }
 }

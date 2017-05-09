@@ -1,13 +1,16 @@
 <%-- 
-    Document   : AgregarEncargadaClinica
-    Created on : 8/05/2017, 04:04:19 PM
+    Document   : Materia
+    Created on : 9/05/2017, 01:42:17 PM
     Author     : Sammy Guergachi <sguergachi at gmail.com>
 --%>
 
+<%@page import="DTO.NombreMaestroDTO"%>
+<%@page import="Modelo.ConsultasMySQL"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+     <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Nueva Encargada de Clinica</title>
@@ -172,7 +175,7 @@
           </ul>
         </li>
 
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#"><i class="fa fa-fw fa-user-md"></i> <span>Encargados de clinica</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -185,7 +188,7 @@
           </ul>
         </li>
 
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#"><i class="fa fa-fw fa-stethoscope"></i><span>Materias</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -202,7 +205,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="ReporteGeneral.jsp">Reporte General</a></li>
+           <li><a href="ReporteGeneral.jsp">Reporte General</a></li>
             <li><a href="ReporteClinica.jsp">Reporte por Clinica</a></li>
             <li><a href="ReporteFecha.jsp">Reporte por Fecha</a></li>
             <li><a href="ReporteFechaClinica.jsp">Reporte por Clinica y Fecha</a></li>
@@ -236,7 +239,7 @@
     <section class="content">
 <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">Nueva Encargada de Clinica</h3>
+              <h3 class="box-title">Asignar Materia a Maestro</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -250,13 +253,34 @@
                     <div class="panel panel-default">
                        
                         <div class="panel-body">
-                            <form action="../ServletEncargado" method="post">
+                      <form action="../ServletMaterias" method="post">
                             <div class="row">
                                 <div class="col-md-4">                    
                                 
                                 <div class="form-group">
-                                    <label for="id_empleado">Id Empleado:</label>
-                                    <input type="text" name="id_empleado" maxlength="30" id="idEmpleado" class="form-control" >
+                                    <label for="id_empleado">Maestro</label>
+                                      <select class="form-control" name="maestro" id="sel1">
+                                       
+                                        
+                                                             <%
+
+		
+		
+		List<NombreMaestroDTO> detalles = ConsultasMySQL.MostrarNombreMaestros();
+		for(int i=0; i<detalles.size();i++){
+		%>
+                <option><%=detalles.get(i).getNombre()%></option>
+                                      
+                                       
+                                        
+
+                                   
+                                    <% 
+	
+}	
+
+		%>
+                                  </select>
                                 </div>
                                 
                             
@@ -265,68 +289,72 @@
                                  <div class="col-md-4">                    
                                 
                                  <div class="form-group">
-                                    <label for="nombre">Nombre:</label>
-                                    <input type="text" name="nombre" maxlength="30" id="idEmpleado" class="form-control" >
+                                    <label for="nombre">Matricula</label>
+                                    <input type="text" name="matricula" maxlength="30" id="idEmpleado" class="form-control" >
                                 </div>  
                                 
                             
                                 </div> 
-
-                                <div class="col-md-4">                    
                                 
-                                 <div class="form-group">
-                                    <label for="apelldioP">Apellido Paterno:</label>
-                                    <input type="text" name="apellido_paterno" maxlength="30" id="apellidoP" class="form-control" >
-                                </div>  
-                                
-                            
-                                </div> 
-
                                  <div class="col-md-4">                    
                                 
-                               
-                                     <div class="form-group">
-                                    <label for="apelldioM">Apellido Materno:</label>
-                                    <input type="text" name="apellido_materno" maxlength="30" id="apellidoM" class="form-control" >
-                                </div> 
-                                
+                                 <div class="form-group">
+                                    <label for="nombre">usuario</label>
+                                    <input type="text" name="usuario" maxlength="30" id="idEmpleado" class="form-control" >
+                                </div>  
                                 
                             
                                 </div> 
 
+                            
+
                                 <div class="col-md-4">                    
                                 
                                  <div class="form-group">
-                                    <label for="usuario">Usuario:</label>
-                                    <input type="text" name="usuario" maxlength="30" id="usuario" class="form-control" >
+                                    <label for="usuario">Materia</label>
+                                     <select class="form-control" name="materia" id="sel1">
+                                        <option>Exodoncia</option>
+                                        <option>Operatoria Dental</option>
+                                        <option>Endodoncia</option>
+                                       
+                                  </select>
                                 </div>  
                                 
                             
                                 </div>   
 
-                                  <div class="col-md-4">                    
+                                  <div class="col-md-2">                    
                                 
                                  <div class="form-group">
-                                    <label for="contraseña">Contraseña:</label>
-                                    <input type="text" name="contrasena" maxlength="30" id="contraseña" class="form-control" >
+                                    <label for="contraseña">Grado:</label>
+                                     <select class="form-control" name="grado" id="sel1">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        
+                                  </select>
                                 </div>  
                                 
                             
                                 </div> 
 
-                                <div class="col-md-4">                    
+                                <div class="col-md-2">                    
                                 
                                  <div class="form-group">
-                                    <label for="clinica">Clinica:</label>
-                                   <select class="form-control" name="clinica" id="sel1">
-                                        <option>Clinica 1</option>
-                                        <option>Clinica 2</option>
-                                        <option>Clinica 3</option>
-                                       
+                                    <label for="correo">Grupo</label>
+                                         <select class="form-control" name="grupo" id="sel1">
+                                        <option>A</option>
+                                        <option>B</option>
+                                        <option>C</option>
+                                        
+                                        
                                   </select>
-
                                 </div>  
-                                    
                                 
                             
                                 </div> 
@@ -334,23 +362,18 @@
                                  <div class="col-md-4">                    
                                 
                                  <div class="form-group">
-                                    <label for="turno">Turno</label>
-                                   <select class="form-control" name="turno" id="sel1">
-                                        <option>Matutino</option>
-                                        <option>Vespertino</option>
-                                      
-                                       
+                                    <label for="correo">Año</label>
+                                         <select class="form-control" name="año" id="sel1">
+                                        <option>2017</option>
+                                        <option>2018</option>
+                                        <option>2019</option>
+                                        
+                                        
                                   </select>
-
                                 </div>  
-                                    
                                 
                             
                                 </div> 
-                                
-                                
-                                
-                                
 
                                  <div class="col-md-2">                    
                                 

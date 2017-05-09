@@ -5,10 +5,14 @@
  */
 package Modelo;
 
+import DTO.AlumnoMateriasDTO;
 import DTO.AlumnosDTO;
 import DTO.EncargadaDTO;
 import DTO.MaestroDTO;
+import DTO.MateriasDTO;
 import DTO.MenuTratamientoDTO;
+import DTO.NombreMaestroDTO;
+import DTO.SemestreDTO;
 import DTO.TratamientoDTO;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
@@ -18,6 +22,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.lang.NumberFormatException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,6 +46,8 @@ public class ConsultasMySQL {
     Connection conn;
     String consulta = "select producto,usuario,precio,categoria FROM Detalles_Venta";
     private static final String insertarMaestro = "insert into Maestro2 (id_empleado,nombre_completo,correo) values (?,?,?)";
+    private static final String insertarMaterias = "insert into maestro_materias (id_empleado,nombre_completo,usuario,materia,grado,grupo,año) values (?,?,?,?,?,?,?)";
+    private static final String insertarAlumnos = "insert into alumnos (matricula,nombre_completo,materia,semestre,grupo,año,correo) values (?,?,?,?,?,?,?)";
     private static final String insertarUsuario = "insert into usuarios (id_empleado,tipo,usuario,contraseña) values (?,?,?,?)";
     private static final String insertarEncargada = "insert into encargada_clinica (id_empleado,nombre,apellido_paterno,apellido_materno,clinica,turno) values (?,?,?,?,?,?)";
     private static final String insertarBitacora = "insert into bitacora (folio,matricula,categoria,tratamiento,cantidad,alumno,fecha,sexo,clinica,comentarios) values (?,?,?,?,?,?,?,?,?,?)";
@@ -83,7 +90,7 @@ public class ConsultasMySQL {
 		return false;
 	}
     
-     public boolean RegistrarMaestro(int id_empleado, String nombre, String correo) throws SQLException,NumberFormatException{
+    public boolean RegistrarMaestro(int id_empleado, String nombre, String correo) throws SQLException,NumberFormatException{
 
         PreparedStatement pst = null;
         pst = conn.prepareStatement(insertarMaestro);
@@ -91,6 +98,43 @@ public class ConsultasMySQL {
         pst.setString(2, nombre);
         pst.setString(3, correo);
 
+        if (pst.executeUpdate() == 1) {
+            return true;
+        }
+
+        return false;
+    }
+    
+     public boolean RegistrarMaterias(int id_empleado, String nombre,String usuario, String materias, String grado,String grupo,String año) throws SQLException {
+
+        PreparedStatement pst = null;
+        pst = conn.prepareStatement(insertarMaterias);
+        pst.setInt(1, id_empleado);
+        pst.setString(2, nombre);
+         pst.setString(3, usuario);
+        pst.setString(4, materias);
+        pst.setString(5, grado);
+        pst.setString(6, grupo);
+        pst.setString(7, año);
+        if (pst.executeUpdate() == 1) {
+            return true;
+        }
+
+        return false;
+    }
+     
+      public boolean RegistrarAlumnos(int matricula, String nombre_completo, String materia,String semestre,String grupo,int año,String correo) throws SQLException {
+
+        PreparedStatement pst = null;
+        pst = conn.prepareStatement(insertarAlumnos);
+        pst.setInt(1, matricula);
+        pst.setString(2, nombre_completo);
+        pst.setString(3,materia);
+        pst.setString(4,semestre);
+        pst.setString(5, grupo);
+        pst.setInt(6, año);
+        pst.setString(7, correo);
+ 
         if (pst.executeUpdate() == 1) {
             return true;
         }
@@ -178,7 +222,7 @@ public class ConsultasMySQL {
     static ResultSet rs = null;
     static String user = "sd";
 
- public static List<MaestroDTO> MostrarMaestros() {
+    public static List<MaestroDTO> MostrarMaestros() {
 
         List<MaestroDTO> maestros = new ArrayList<MaestroDTO>();
         try {
@@ -232,18 +276,143 @@ public class ConsultasMySQL {
 
         List<AlumnosDTO> alumno = new ArrayList<AlumnosDTO>();
         try {
-            String query = "select folio,matricula,alumno,tratamiento,comentarios FROM bitacora";
+            String query = "select folio,alumno,tratamiento,comentario FROM Bitacora_Recibos";
             Connection conexion = Conexionsql.Conexion();
             st = conexion.createStatement();
             rs = st.executeQuery(query);
             while (rs.next()) {
 
-                AlumnosDTO detalles = new AlumnosDTO(rs.getInt("folio"), rs.getInt("matricula"), rs.getString("alumno"), rs.getString("tratamiento"), rs.getString( "comentarios"));
+                AlumnosDTO detalles = new AlumnosDTO(rs.getInt("folio"), rs.getInt("alumno"), rs.getInt("tratamiento"), rs.getString("comentario"));
                 alumno.add(detalles);
 
             }
 
             return alumno;
+
+        } catch (SQLException ex) {
+
+        }
+
+        return null;
+
+    }
+       
+       public static List<NombreMaestroDTO> MostrarNombreMaestros() {
+
+        List<NombreMaestroDTO> maestro = new ArrayList<NombreMaestroDTO>();
+        try {
+            String query = "select nombre_completo FROM Maestro2";
+            Connection conexion = Conexionsql.Conexion();
+            st = conexion.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+
+                NombreMaestroDTO detalles = new NombreMaestroDTO(rs.getString("nombre_completo"));
+                maestro.add(detalles);
+
+            }
+
+            return maestro;
+
+        } catch (SQLException ex) {
+
+        }
+
+        return null;
+
+    }
+       
+        public static List<AlumnoMateriasDTO> MostrarAlumnosMaterias(Object materia) {
+
+        List<AlumnoMateriasDTO> alumno = new ArrayList<AlumnoMateriasDTO>();
+        try {
+            String query = "select matricula,nombre_completo,materia,semestre,grupo,correo FROM alumnos where materia='"+materia+"'";
+            Connection conexion = Conexionsql.Conexion();
+            st = conexion.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+
+                AlumnoMateriasDTO detalles = new AlumnoMateriasDTO(rs.getInt("matricula"),rs.getString("nombre_completo"),rs.getString("materia"),rs.getString("semestre"),rs.getString("grupo"),rs.getString("correo"));
+                alumno.add(detalles);
+
+            }
+
+            return alumno;
+
+        } catch (SQLException ex) {
+
+        }
+
+        return null;
+
+    }
+        
+        public static List<AlumnoMateriasDTO> MostrarAlumnos(String materia,String semestre,String grupo) {
+
+        List<AlumnoMateriasDTO> alumno = new ArrayList<AlumnoMateriasDTO>();
+        try {
+                String query = "select matricula,nombre_completo,materia,semestre,grupo,correo FROM alumnos where materia='"+materia+"' and semestre='"+semestre+"' and grupo='"+grupo+"'";
+            Connection conexion = Conexionsql.Conexion();
+            st = conexion.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+
+                AlumnoMateriasDTO detalles = new AlumnoMateriasDTO(rs.getInt("matricula"),rs.getString("nombre_completo"),rs.getString("materia"),rs.getString("semestre"),rs.getString("grupo"),rs.getString("correo"));
+                alumno.add(detalles);
+
+            }
+
+            return alumno;
+
+        } catch (SQLException ex) {
+
+        }
+
+        return null;
+
+    }
+       
+        public static List<MateriasDTO> MostrarMaterias(String user) {
+
+        List<MateriasDTO> materia = new ArrayList<MateriasDTO>();
+        try {
+            String query = "select Materia FROM maestro_materias where usuario='" + user + "'";
+            Connection conexion = Conexionsql.Conexion();
+            st = conexion.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+
+                MateriasDTO detalles = new MateriasDTO(rs.getString("Materia"));
+                materia.add(detalles);
+
+            }
+
+            return materia;
+
+        } catch (SQLException ex) {
+
+        }
+
+        return null;
+
+    }
+        
+       public static List<SemestreDTO> MostrarSemestre(String user) {
+
+        List<SemestreDTO> semestre = new ArrayList<SemestreDTO>();
+        try {
+            String query = "select grado FROM maestro_materias where usuario='" + user + "'";
+            Connection conexion = Conexionsql.Conexion();
+            st = conexion.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+
+                SemestreDTO detalles = new SemestreDTO(rs.getString("grado"));
+                semestre.add(detalles);
+
+            }
+
+            return semestre;
 
         } catch (SQLException ex) {
 
@@ -357,13 +526,21 @@ public class ConsultasMySQL {
             conn = ConexionMySQL.getConexionUnica("localhost", "facultad_odontologia", "root", "root");
 
             ConsultasMySQL sql = new ConsultasMySQL(conn);
+            //System.out.println(sql.RegistrarAlumnos("Endodoncia", 7, "A", 2017));
+         
+                    
+                    //System.out.println(sql.RegistrarAlumnos(1, "Alumno 1", "Exodoncia", "6", "A",2010,"correo" ));
+                    
+                      List<MaestroDTO> detalless = ConsultasMySQL.MostrarMaestros();
+		for(int i=0; i<detalless.size();i++){  
+                    System.out.println(detalless.get(i).getId_empleado());
+                    System.out.println(detalless.get(i).getNombreCompleto());
+                    System.out.println(detalless.get(i).getCorreo());
+
+                    
+                }
+                
             
-            
-            SimpleDateFormat dateformat= new SimpleDateFormat("yyyy-MM-dd");
-            java.sql.Date f=java.sql.Date.valueOf("1995-02-19");
-		String datef=dateformat.format(f);
-                java.sql.Date sqlDate=java.sql.Date.valueOf(datef);
-                     System.out.println(sql.RegistroBitacoraRecibos(8, 49247,2, 5,sqlDate,"ninguno",2, 1));
         } catch (SQLException ex) {
             Logger.getLogger(ConsultasMySQL.class.getName()).log(Level.SEVERE, null, ex);
         }
