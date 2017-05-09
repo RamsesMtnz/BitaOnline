@@ -1,16 +1,41 @@
 <%-- 
-    Document   : PrincipalCoordinadora
-    Created on : 8/05/2017, 01:10:12 PM
+    Document   : RegistroTratamientos
+    Created on : 9/05/2017, 03:59:55 PM
     Author     : Sammy Guergachi <sguergachi at gmail.com>
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="DTO.TratamientoDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-   <head>
+      <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Coordinadora</title>
+  <title>Registrar Tratamientos</title>
+  
+   <script type="text/javascript">
+        
+    function obtenerMenuTratamiento(id_tratamiento){
+		//alert(estado.value);
+		jQuery.ajax({
+			   type: "POST",
+			   url: "ServletPrueba",
+			   data: "id_tratamiento="+id_tratamiento+"&accion=tratamiento", 
+			   success: function(msg){				   
+				   	alert(msg);
+			     	jQuery("#tratamiento").html(msg);						
+			    }			   
+			});
+		
+		}	
+	
+	$( document ).ready(function() {
+	    	
+	    	obtenerMenuTratamiento( "#tratamiento" );
+	})
+                
+    </script>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -34,8 +59,11 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-
+<!--
+--------------------------------------------|
+-->
 <body class="hold-transition skin-blue sidebar-mini">
+     
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -61,7 +89,7 @@
           
 <li class="dropdown user user-menu">
             <li class="dropdown">
-                <%  HttpSession sesion = request.getSession();
+                     <%  HttpSession sesion = request.getSession();
                                 String usuario="";
                 usuario = sesion.getAttribute("user").toString();%>
                                 
@@ -91,7 +119,6 @@
                         <li><a href="../Login.jsp?cerrar=true"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
                         
                     </ul>
-                    <!-- /.dropdown-user -->
                 </li>
 
 
@@ -100,9 +127,11 @@
 
 
 
-          
+          </li>
 <li><img src="../img/uac_web_logo.png" height="50" width="50"></li>
 <li><img src="../img/spam.png" height="50" width="50"></li>
+
+         
 
         </ul>
 
@@ -133,7 +162,7 @@
           <img src="../img/fo_web_logo.png"  alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Coordinadora</p>
+          <p>Encargada de Clinica</p>
           <!-- Status -->
           
         </div>
@@ -155,60 +184,25 @@
       <ul class="sidebar-menu">
         <li class="header">INICIO</li>
         <!-- Optionally, you can add icons to the links -->
-<li class="treeview">
-          <a href="mtro.htm"><i class="glyphicon glyphicon-user"></i> <span>Maestros</span>
+       <li class="treeview active">
+          <a href="mtro.htm"><i class="glyphicon glyphicon-user"></i> <span>Registro de Tratamientos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-            </span>
+    
+        </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="VerMaestros.jsp">Ver Maestros</a></li>
-            <li><a href="AgregarMaestro.jsp">Aegregar maestro</a></li>
-            <li><a href="mtro2.html">Quitar maestro</a></li>
+          <li><a href="cargarFormulario">Tratamientos Realizados</a></li>
+                
           </ul>
         </li>
+       
 
-        <li class="treeview">
-          <a href="#"><i class="fa fa-fw fa-user-md"></i> <span>Encargados de clinica</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="VerEncargado.jsp">Ver Encargados</a></li>
-            <li><a href="AgregarEncargadaClinica.jsp">Agregar Encargado</a></li>
-            <li><a href="EliminarEncargada.jsp">Quitar Encargado</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#"><i class="fa fa-fw fa-stethoscope"></i><span>Materias</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="Materia.jsp">Asignar Materia a Maestro</a></li>
-          </ul>
-        </li>
-         <li class="treeview">
-          <a href="#"><i class="fa fa-fw fa-file-text-o"></i> <span>Reportes</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-           <li><a href="ReporteGeneral.jsp">Reporte General</a></li>
-            <li><a href="ReporteClinica.jsp">Reporte por Clinica</a></li>
-            <li><a href="ReporteFecha.jsp">Reporte por Fecha</a></li>
-            <li><a href="ReporteFechaClinica.jsp">Reporte por Clinica y Fecha</a></li>
-          </ul>
-        </li>
+       
+       
 
 
         <li><a href="#"><i class="fa fa-link"></i> <span>Acerca de</span></a></li>
-
-        <!--<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Acerca de</span></a></li> -->
 
 
 
@@ -224,7 +218,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        BIENVENIDO
+        Maestros
         <small>Cordinación</small>
       </h1>
       
@@ -232,40 +226,81 @@
 
     <!-- Main content -->
     <section class="content">
+<div class="box box-warning">
+            <div class="box-header with-border">
+              <h3 class="box-title">Nuevo Maestro</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+               <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                       
+                        <div class="panel-body">
+                            		<form method="POST" action="persona">
+					
+					
+	            	
+	            	
+	            	
+	            
+	            	
+	            	<div class="row">
+	            		 <div class="col-md-4">
+							<div class="form-group">
+		            			   <select name="id_tratamiento" id="id_tratamiento" class="form-control" onchange="obtenerMenuTratamiento(this.value)">
+		            				<% 
+		            					List<TratamientoDTO> listaTratamiento = 
+		            						(List<TratamientoDTO>) request.getAttribute("listaTratamiento");
+		            					for(TratamientoDTO estadoDTO : listaTratamiento){
+		            						out.print("<option value=" +estadoDTO.getId_tratamiento()+">" + estadoDTO.getTratamiento());
+		            					}
+		            				%>
+		            			</select>		            				
+		            		</div> 
+	            		</div>
+	            		
+	            		<div class="col-md-4">
+							<div class="form-group">
+		            			  <select name="tratamiento" id="tratamiento" class="form-control" >
+		            				
+		            			</select>		            				
+		            		</div> 
+	            		</div>	 
+	            		
+	            		<div class="col-md-4">
+							<div class="form-group">
+		            			<label for="cp">CP:</label>
+		            			<input type="text" name="cp" id="cp" class="form-control">		            				
+		            		</div> 
+	            		</div>	 
+	            	</div>
+	            	
+	            	
+	            	
+	            			
+					</form>
+                            
+                            <!-- /.row (nested) -->
+                        </div>
+                        
+                        <!-- /.panel-body -->
+                    </div>
+                    
+                    <!-- /.panel -->
+                </div>
+                   
+                   
+                <!-- /.col-lg-12 -->
+            </div>
 
-    <!-- Main content <img src="odo.jpg"> -->
-    <section class="content">
-<div id="contenedor">
-    <div id="myCarousel" class="carousel slide">
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        
-        <li data-target="myCarousel" data-slide-to="4"></li>
-      </ol>
-      <!-- Carousel items -->
-      <div class="carousel-inner">
-        <div class="active item"><img  src="../img/4.jpg" alt="banner1" /></div>
-        <div class="item"><img  src="../img/odo.jpg" alt="banner2" /></div>
-        
-        <div class="item"><img  src="../img/4.jpg" alt="banner4" /></div>
-        <div class="item"><img  src="../img/2.jpg" alt="banner5" /></div>
-      </div>
-      <!-- Carousel nav -->
-      <a class="carousel-control left" href="../#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="../#myCarousel" data-slide="next">&rsaquo;</a>
-    </div>
-</div>
- 
+            </div>
+            
+            <!-- /.box-body -->
+          </div>
 
-<script>
-    $(document).ready(function(){
-        $('.myCarousel').carousel({
-            interval: 3000
-        });
-    });
-</script>
+
+
 
       <!-- Your Page Content Here -->
 

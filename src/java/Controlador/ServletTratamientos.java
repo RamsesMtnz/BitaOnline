@@ -10,8 +10,7 @@ import DTO.TratamientoDTO;
 import Modelo.ConexionMySQL;
 import Modelo.ConsultasMySQL;
 import java.io.IOException;
-import static java.lang.System.out;
-
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -37,12 +36,8 @@ public class ServletTratamientos extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            
-            
             throws ServletException, IOException {
-        
-       
-        		String accion = request.getParameter("accion");
+        String accion = request.getParameter("accion");
 		
 		if(accion == null){
 			accion = "menu_tratamiento";
@@ -80,7 +75,7 @@ public class ServletTratamientos extends HttpServlet {
 			view.forward(request, response);
 			
 		}catch(SQLException e){
-			e.printStackTrace();
+			
 		}
     }
 

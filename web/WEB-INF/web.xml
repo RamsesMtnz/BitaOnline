@@ -16,6 +16,22 @@
         <servlet-name>ServletMaterias</servlet-name>
         <servlet-class>Controlador.ServletMaterias</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletAlumnos</servlet-name>
+        <servlet-class>Controlador.ServletAlumnos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletPrueba</servlet-name>
+        <servlet-class>Controlador.ServletPrueba</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletTratamientos</servlet-name>
+        <servlet-class>Controlador.ServletTratamientos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletBitacora</servlet-name>
+        <servlet-class>Controlador.ServletBitacora</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletSesion</servlet-name>
         <url-pattern>/ServletSesion</url-pattern>
@@ -31,6 +47,22 @@
     <servlet-mapping>
         <servlet-name>ServletMaterias</servlet-name>
         <url-pattern>/ServletMaterias</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletAlumnos</servlet-name>
+        <url-pattern>/ServletAlumnos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletPrueba</servlet-name>
+        <url-pattern>/ServletPrueba</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletTratamientos</servlet-name>
+        <url-pattern>/cargarFormulario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletBitacora</servlet-name>
+        <url-pattern>/ServletBitacora</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

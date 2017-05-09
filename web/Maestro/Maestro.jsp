@@ -1,16 +1,16 @@
 <%-- 
-    Document   : PrincipalCoordinadora
-    Created on : 8/05/2017, 01:10:12 PM
+    Document   : Maestro
+    Created on : 9/05/2017, 03:03:23 PM
     Author     : Sammy Guergachi <sguergachi at gmail.com>
+      <head>
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Coordinadora</title>
+  <title>Maestro</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -42,7 +42,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="PrincipalCoordinadora.jsp" class="logo">
+    <a href="Maestro.jsp.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -133,7 +133,7 @@
           <img src="../img/fo_web_logo.png"  alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Coordinadora</p>
+          <p>Maestro</p>
           <!-- Status -->
           
         </div>
@@ -156,54 +156,20 @@
         <li class="header">INICIO</li>
         <!-- Optionally, you can add icons to the links -->
 <li class="treeview">
-          <a href="mtro.htm"><i class="glyphicon glyphicon-user"></i> <span>Maestros</span>
+          <a href="mtro.htm"><i class="glyphicon glyphicon-user"></i> <span>Alumnos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="VerMaestros.jsp">Ver Maestros</a></li>
-            <li><a href="AgregarMaestro.jsp">Aegregar maestro</a></li>
-            <li><a href="mtro2.html">Quitar maestro</a></li>
+          <li><a href="VerAlumnos.jsp">Ver Alumnos</a></li>
+            <li><a href="AgregarAlumnos.jsp">Aegregar Alumnos</a></li>
+            <li><a href="mtro2.html"> Tratamientos Realizados</a></li>
           </ul>
         </li>
 
-        <li class="treeview">
-          <a href="#"><i class="fa fa-fw fa-user-md"></i> <span>Encargados de clinica</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="VerEncargado.jsp">Ver Encargados</a></li>
-            <li><a href="AgregarEncargadaClinica.jsp">Agregar Encargado</a></li>
-            <li><a href="EliminarEncargada.jsp">Quitar Encargado</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#"><i class="fa fa-fw fa-stethoscope"></i><span>Materias</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="Materia.jsp">Asignar Materia a Maestro</a></li>
-          </ul>
-        </li>
-         <li class="treeview">
-          <a href="#"><i class="fa fa-fw fa-file-text-o"></i> <span>Reportes</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-           <li><a href="ReporteGeneral.jsp">Reporte General</a></li>
-            <li><a href="ReporteClinica.jsp">Reporte por Clinica</a></li>
-            <li><a href="ReporteFecha.jsp">Reporte por Fecha</a></li>
-            <li><a href="ReporteFechaClinica.jsp">Reporte por Clinica y Fecha</a></li>
-          </ul>
-        </li>
+       
+        
 
 
         <li><a href="#"><i class="fa fa-link"></i> <span>Acerca de</span></a></li>
@@ -225,7 +191,7 @@
     <section class="content-header">
       <h1>
         BIENVENIDO
-        <small>Cordinación</small>
+        <small>Maestro</small>
       </h1>
       
     </section>
@@ -241,14 +207,14 @@
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
-        
+        <li data-target="myCarousel" data-slide-to="3"></li>
         <li data-target="myCarousel" data-slide-to="4"></li>
       </ol>
       <!-- Carousel items -->
       <div class="carousel-inner">
         <div class="active item"><img  src="../img/4.jpg" alt="banner1" /></div>
         <div class="item"><img  src="../img/odo.jpg" alt="banner2" /></div>
-        
+        <div class="item"><img  src="../img/3.jpg" alt="banner3" /></div>
         <div class="item"><img  src="../img/4.jpg" alt="banner4" /></div>
         <div class="item"><img  src="../img/2.jpg" alt="banner5" /></div>
       </div>

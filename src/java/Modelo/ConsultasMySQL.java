@@ -197,19 +197,24 @@ public class ConsultasMySQL {
         return false;
     }
      
-          public boolean RegistroBitacoraRecibos(int folio,int alumno, int tratamiento, int cantidad,Date fecha,String comentarios,int sexo,int clinica) throws SQLException {
+          public boolean RegistroBitacoraRecibos(int folio,int alumno,String nombre, int tratamiento, int cantidad,Date fecha,String comentarios,int sexo,int clinica,String maestro,String materia,String grado,String grupo,String año) throws SQLException {
 
         PreparedStatement pst = null;
         pst = conn.prepareStatement(insertarBitacoraRecibos);
         pst.setInt(1, folio);
         pst.setInt(2, alumno);
-        pst.setInt(3, tratamiento);
-        pst.setInt(4, cantidad);
-        pst.setDate(5, fecha);
-        pst.setString(6, comentarios);
-        pst.setInt(7, sexo);
-        pst.setInt(8, clinica);
-
+        pst.setString(3, nombre);
+        pst.setInt(4, tratamiento);
+        pst.setInt(5, cantidad);
+        pst.setDate(6, fecha);
+        pst.setString(7, comentarios);
+        pst.setInt(8, sexo);
+        pst.setInt(9, clinica);
+        pst.setString(10, maestro);
+        pst.setString(11, materia);
+        pst.setString(12, grado);
+        pst.setString(13, grupo);
+        pst.setString(14, año); 
         if (pst.executeUpdate() == 1) {
             return true;
         }

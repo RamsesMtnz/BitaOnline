@@ -53,7 +53,7 @@ public class ServletSesion extends HttpServlet {
             }
             else if(co.autentificacion(2, usuario, contraseña)){
                 sesion.setAttribute("user", usuario);
-                response.sendRedirect("cargarFormulario");
+                response.sendRedirect("EncargadaDeClinica/EncargadaDeClinica.jsp");
             }
              else if(co.autentificacion(3, usuario, contraseña)){
                 sesion.setAttribute("user", usuario);
