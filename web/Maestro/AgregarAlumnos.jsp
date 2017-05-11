@@ -401,8 +401,10 @@
                     <%
                          
                          String materia=(String)session.getAttribute("materia");
+                         String semestre=(String)session.getAttribute("semestre");
+                         String grupo=(String)session.getAttribute("grupo");
                          
-                            List<AlumnoMateriasDTO> detalless = ConsultasMySQL.MostrarAlumnosMaterias(materia);
+                            List<AlumnoMateriasDTO> detalless = ConsultasMySQL.MostrarAlumnosMaterias(materia,semestre,grupo);
 		for(int i=0; i<detalless.size();i++){  
                     %>
                     <tr class="warning">

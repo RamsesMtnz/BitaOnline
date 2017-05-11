@@ -51,7 +51,7 @@ public class ConsultasMySQL {
     private static final String insertarUsuario = "insert into usuarios (id_empleado,tipo,usuario,contraseña) values (?,?,?,?)";
     private static final String insertarEncargada = "insert into encargada_clinica (id_empleado,nombre,apellido_paterno,apellido_materno,clinica,turno) values (?,?,?,?,?,?)";
     private static final String insertarBitacora = "insert into bitacora (folio,matricula,categoria,tratamiento,cantidad,alumno,fecha,sexo,clinica,comentarios) values (?,?,?,?,?,?,?,?,?,?)";
-    private static final String insertarBitacoraRecibos = "insert into Bitacora_Recibos (folio,alumno,tratamiento,cantidad,fecha,comentario,sexo,clinica) values (?,?,?,?,?,?,?,?)";
+    private static final String insertarBitacoraRecibos = "insert into Bitacora_Recibos (folio,alumno,nombre_completo,tratamiento,cantidad,fecha,comentario,sexo,clinica,maestro,materia,grado,grupo,año) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String obtenerTratamientos = "select * from area_tratamientos";
     private static final String obtenerMenuTratamientos = "select * from menu_tratamientos where area_tratamiento = ?";
     private static final String obtenerCategoria = "select tratamiento from tratamientos where id_tratamiento = ?";
@@ -327,11 +327,11 @@ public class ConsultasMySQL {
 
     }
        
-        public static List<AlumnoMateriasDTO> MostrarAlumnosMaterias(Object materia) {
+        public static List<AlumnoMateriasDTO> MostrarAlumnosMaterias(String materia,String semestre,String grupo) {
 
         List<AlumnoMateriasDTO> alumno = new ArrayList<AlumnoMateriasDTO>();
         try {
-            String query = "select matricula,nombre_completo,materia,semestre,grupo,correo FROM alumnos where materia='"+materia+"'";
+            String query = "select matricula,nombre_completo,materia,semestre,grupo,correo FROM alumnos where materia='"+materia+"' and semestre='"+semestre+"' and grupo='"+grupo+"'";
             Connection conexion = Conexionsql.Conexion();
             st = conexion.createStatement();
             rs = st.executeQuery(query);
@@ -536,11 +536,15 @@ public class ConsultasMySQL {
                     
                     //System.out.println(sql.RegistrarAlumnos(1, "Alumno 1", "Exodoncia", "6", "A",2010,"correo" ));
                     
-                      List<MaestroDTO> detalless = ConsultasMySQL.MostrarMaestros();
+                      List<AlumnoMateriasDTO> detalless = ConsultasMySQL.MostrarAlumnosMaterias("Operatoria Dental", "8", "A");
 		for(int i=0; i<detalless.size();i++){  
-                    System.out.println(detalless.get(i).getId_empleado());
-                    System.out.println(detalless.get(i).getNombreCompleto());
+                    System.out.println(detalless.get(i).getMatricula());
+                    System.out.println(detalless.get(i).getNombre());
+                    System.out.println(detalless.get(i).getMateria());
+                    System.out.println(detalless.get(i).getSemestre());
+                    System.out.println(detalless.get(i).getGrupo());
                     System.out.println(detalless.get(i).getCorreo());
+                    
 
                     
                 }

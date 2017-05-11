@@ -78,10 +78,16 @@ public class ServletBitacora extends HttpServlet {
             else if(cli.equals("Clinica 3")){
                 clinica=3;
             }
-            
+           
             
             String comentarios=request.getParameter("comentarios");
-            
+            String maestro=request.getParameter("maestro");
+            String materia=request.getParameter("materia");
+            String grado=request.getParameter("grado");
+            String grupo=request.getParameter("grupo");   
+            String año=request.getParameter("año");
+            String nombre=request.getParameter("alumno");
+
              Connection conn;
 		
 		try{
@@ -91,7 +97,7 @@ public class ServletBitacora extends HttpServlet {
                          Metodos metodo = new Metodos();
 			 for(BitacoraDTO tratamientos : DatosBitacora.listado){
                            //if(registrar.RegistroBitacora(folio,matricula,metodo.obtenerCategoria(Integer.parseInt(tratamientos.getCategoria())), metodo.obtenerTratamiento(Integer.parseInt(tratamientos.getTratamiento())), tratamientos.getCantidad(), alumno,sqlDate, sexo,clinica, comentarios)){
-                          if(registrar.RegistroBitacoraRecibos(folio, alumno, Integer.parseInt(tratamientos.getTratamiento()), Integer.parseInt(tratamientos.getCantidad()), sqlDate, comentarios, sexo, clinica)){
+                          if(registrar.RegistroBitacoraRecibos(folio, alumno,nombre, Integer.parseInt(tratamientos.getTratamiento()), Integer.parseInt(tratamientos.getCantidad()), sqlDate, comentarios, sexo, clinica,maestro,materia,grado,grupo,año)){
 
                            }
                          }

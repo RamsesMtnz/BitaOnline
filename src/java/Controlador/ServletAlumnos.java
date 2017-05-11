@@ -55,6 +55,9 @@ public class ServletAlumnos extends HttpServlet {
 			if(registrar.RegistrarAlumnos(matricula,nombre,materias,semestre,grupo,a,correo)){
                               
                                    // response.sendRedirect("Maestro/NuevosAlumnos.jsp");
+                                  
+                                  request.getSession().setAttribute("semestre", semestre);
+                                  request.getSession().setAttribute("grupo", grupo);
                                   request.getSession().setAttribute("materia", materias);
                   response.sendRedirect("Maestro/AgregarAlumnos.jsp");
 				
