@@ -6,6 +6,7 @@
 package Modelo;
 
 import DTO.AlumnoMateriasDTO;
+import DTO.AlumnosBitacoraDTO;
 import DTO.AlumnosDTO;
 import DTO.EncargadaDTO;
 import DTO.MaestroDTO;
@@ -352,6 +353,58 @@ public class ConsultasMySQL {
 
     }
         
+          
+        public static List<AlumnosBitacoraDTO> MostrarRegistroAlumnos(String maestro,String materia,String grado,String grupo) {
+
+        List<AlumnosBitacoraDTO> alumno = new ArrayList<AlumnosBitacoraDTO>();
+        try {
+            String query = "select folio,alumno,nombre_completo,tratamiento,cantidad,fecha,maestro from bitacora_recibos where maestro='"+maestro+"' and materia='"+materia+"'and grado='"+grado+"' and grupo='"+grupo+"'";
+            Connection conexion = Conexionsql.Conexion();
+            st = conexion.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+
+                AlumnosBitacoraDTO detalles = new AlumnosBitacoraDTO(rs.getString("folio"),rs.getString("alumno"),rs.getString("nombre_completo"),rs.getString("tratamiento"),rs.getString("cantidad"),rs.getString("fecha"),rs.getString("maestro"));
+                alumno.add(detalles);
+
+            }
+
+            return alumno;
+
+        } catch (SQLException ex) {
+
+        }
+
+        return null;
+
+    }
+        
+             
+        public static List<AlumnosBitacoraDTO> MostrarRegistroAlum(String maestro,String materia,String grado,String grupo) {
+
+        List<AlumnosBitacoraDTO> alumno = new ArrayList<AlumnosBitacoraDTO>();
+        try {
+            String query = "select folio,alumno,nombre_completo,tratamiento,cantidad,fecha,maestro from bitacora_recibos where maestro='"+maestro+"' and materia='"+materia+"'and grado='"+grado+"' and grupo='"+grupo+"'";
+            Connection conexion = Conexionsql.Conexion();
+            st = conexion.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+
+                AlumnosBitacoraDTO detalles = new AlumnosBitacoraDTO(rs.getString("folio"),rs.getString("alumno"),rs.getString("nombre_completo"),rs.getString("tratamiento"),rs.getString("cantidad"),rs.getString("fecha"),rs.getString("maestro"));
+                alumno.add(detalles);
+
+            }
+
+            return alumno;
+
+        } catch (SQLException ex) {
+
+        }
+
+        return null;
+
+    }
+        
         public static List<AlumnoMateriasDTO> MostrarAlumnos(String materia,String semestre,String grupo) {
 
         List<AlumnoMateriasDTO> alumno = new ArrayList<AlumnoMateriasDTO>();
@@ -536,14 +589,14 @@ public class ConsultasMySQL {
                     
                     //System.out.println(sql.RegistrarAlumnos(1, "Alumno 1", "Exodoncia", "6", "A",2010,"correo" ));
                     
-                      List<AlumnoMateriasDTO> detalless = ConsultasMySQL.MostrarAlumnosMaterias("Operatoria Dental", "8", "A");
+                      List<AlumnosBitacoraDTO> detalless = ConsultasMySQL.MostrarRegistroAlumnos("Jordy Can Uitz","Operatoria Dental", "6", "B");
 		for(int i=0; i<detalless.size();i++){  
                     System.out.println(detalless.get(i).getMatricula());
                     System.out.println(detalless.get(i).getNombre());
-                    System.out.println(detalless.get(i).getMateria());
-                    System.out.println(detalless.get(i).getSemestre());
-                    System.out.println(detalless.get(i).getGrupo());
-                    System.out.println(detalless.get(i).getCorreo());
+                    System.out.println(detalless.get(i).getCantidada());
+                    System.out.println(detalless.get(i).getFecha());
+                    System.out.println(detalless.get(i).getFolio());
+                    System.out.println(detalless.get(i).getMaestro());
                     
 
                     

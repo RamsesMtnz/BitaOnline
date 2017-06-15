@@ -176,7 +176,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="cargarFormulario">Tratamientos Realizados</a></li>
-                
+          <li><a href="VerRegistros.jsp">Registro de Tratamientos</a></li>
           </ul>
         </li>
        

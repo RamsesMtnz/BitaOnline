@@ -38,7 +38,7 @@ public class ServletSesion extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
            String usuario = request.getParameter("user");
-        String contraseña = request.getParameter("pass");
+           String contraseña = request.getParameter("pass");
 
         Connection conn;
 

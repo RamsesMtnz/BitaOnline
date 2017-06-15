@@ -24,7 +24,7 @@ public class Metodos {
 		boolean respuesta = false;
 		
                 try{
-                   String query="DELETE FROM Maestro where id_empleado="+id_empleado+" ";
+                   String query="DELETE FROM Maestro2 where id_empleado="+id_empleado+" ";
                    Connection conexion = Conexionsql.Conexion();
                    Statement st=null;
                    st=conexion.createStatement();
@@ -141,30 +141,53 @@ public class Metodos {
 		return tratamiento;
 	}
          
-         public String obtenerNombreMaestro(int matricula) 
-			{
-         Statement pst = null;
-         ResultSet rs = null;
-		
-		try{
-             Connection conexion = Conexionsql.Conexion();
-             pst = conexion.createStatement();
-             rs = pst.executeQuery("select nombre_completo from Maestro2 where id_empleado="+matricula);
-              while(rs.next()){
-                    resultado=rs.getString("nombre_completo");
-                }
-         }catch(SQLException ex){
-             
-         }
+        public String obtenerNombreMaestro(int matricula) {
+        Statement pst = null;
+        ResultSet rs = null;
 
-		
-		
-		return resultado;
-	}
+        try {
+            Connection conexion = Conexionsql.Conexion();
+            pst = conexion.createStatement();
+            rs = pst.executeQuery("select nombre_completo from Maestro2 where id_empleado=" + matricula);
+            while (rs.next()) {
+                resultado = rs.getString("nombre_completo");
+            }
+        } catch (SQLException ex) {
+
+        }
+
+        return resultado;
+    }
+        
+        public String obtenerRegistroAlumnos(String maestro,String materia,String grado,String grupo) {
+        Statement pst = null;
+        ResultSet rs = null;
+
+        try {
+            Connection conexion = Conexionsql.Conexion();
+            pst = conexion.createStatement();
+            rs = pst.executeQuery("select folio,alumno,nombre_completo,tratamiento,cantidad,fecha,maestro from bitacora_recibos where maestro='"+maestro+"' and materia='"+materia+"'and grado='"+grado+"' and grupo='"+grupo+"'");    
+
+            while (rs.next()) {
+                resultado = rs.getString("folio");
+                resultado = rs.getString("alumno");
+                resultado = rs.getString("nombre_completo");
+                resultado = rs.getString("tratamiento");
+                resultado = rs.getString("cantidad");
+                resultado = rs.getString("fecha");
+                resultado = rs.getString("maestro");
+
+            }
+        } catch (SQLException ex) {
+
+        }
+
+        return resultado;
+    }
       
     
     public static void main(String args[]){
         Metodos metodo = new Metodos();
-        System.out.print(metodo.obtenerNombreMaestro(32923));
+        System.out.print(metodo.obtenerRegistroAlumnos("Jordy Can Uitz","Operatoria Dental","7","D"));
     }
 }

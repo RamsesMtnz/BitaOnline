@@ -193,6 +193,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="cargarFormulario">Nuevo Tratamiento</a></li>
+          <li><a href="EncargadaDeClinica/VerRegistros.jsp">Registros de Tratamientos</a></li>
                 
           </ul>
         </li>
