@@ -46,7 +46,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Odontlogia</b> FO</span>
+      <span class="logo-lg"><b>Odontología</b> FO</span>
     </a>
 
     <!-- Header Navbar -->
@@ -133,7 +133,7 @@
           <img src="../img/fo_web_logo.png"  alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Coordinadora</p>
+          <p>Coordinación</p>
           <!-- Status -->
           
         </div>
@@ -163,7 +163,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="VerMaestros.jsp">Ver Maestros</a></li>
-            <li><a href="AgregarMaestro.jsp">Aegregar maestro</a></li>
+            <li><a href="AgregarMaestro.jsp">Agregar maestro</a></li>
             <li><a href="mtro2.html">Quitar maestro</a></li>
           </ul>
         </li>
@@ -202,6 +202,7 @@
             <li><a href="ReporteClinica.jsp">Reporte por Clinica</a></li>
             <li><a href="ReporteFecha.jsp">Reporte por Fecha</a></li>
             <li><a href="ReporteFechaClinica.jsp">Reporte por Clinica y Fecha</a></li>
+            <li><a href="ReporteMejorAlumno.jsp">Reporte De Alumnos Destacados</a></li>            
           </ul>
         </li>
 

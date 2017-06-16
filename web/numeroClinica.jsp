@@ -38,17 +38,17 @@
   }else if (Clinica.equals("Clinica 3")){
       numeroClinica ="3";
   }
-  Connection conexion;
-  Class.forName("com.mysql.jdbc.Driver").newInstance();
-  conexion=DriverManager.getConnection("jdbc:mysql://localhost/facultad_odontologia","root","root");
-  File reporte=new File(application.getRealPath("PDF/soloClinica.jasper"));
-  Map parametro=new HashMap();
-  parametro.put("clinica", numeroClinica);
-  byte [] bit=JasperRunManager.runReportToPdf(reporte.getPath(),parametro,conexion);
-  response.setContentType("application/pdf");
-  response.setContentLength(bit.length);
-  ServletOutputStream output=response.getOutputStream();
-  output.write(bit, 0, bit.length);
-  output.flush();
-  output.close();
+      Connection conexion;
+      Class.forName("com.mysql.jdbc.Driver").newInstance();
+      conexion=DriverManager.getConnection("jdbc:mysql://localhost/facultad_odontologia","root","root");
+      File reporte=new File(application.getRealPath("PDF/soloClinica.jasper"));
+      Map parametro=new HashMap();
+      parametro.put("clinica", numeroClinica);
+      byte [] bit=JasperRunManager.runReportToPdf(reporte.getPath(),parametro,conexion);
+      response.setContentType("application/pdf");
+      response.setContentLength(bit.length);
+      ServletOutputStream output=response.getOutputStream();
+      output.write(bit, 0, bit.length);
+      output.flush();
+      output.close();
 %>

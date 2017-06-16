@@ -44,7 +44,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Odontlogia</b> FO</span>
+      <span class="logo-lg"><b>Odontologia</b> FO</span>
     </a>
 
     <!-- Header Navbar -->
@@ -162,7 +162,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="VerMaestros.jsp">Ver Maestros</a></li>
-            <li><a href="AgregarMaestro.jsp">Aegregar maestro</a></li>
+            <li><a href="AgregarMaestro.jsp">Agregar maestro</a></li>
             <li><a href="EliminarMaestro.jsp">Quitar maestro</a></li>
           </ul>
         </li>
@@ -221,8 +221,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Maestros
-        <small>Cordinación</small>
+        Encargado(a) de Clínica
+        <small>Coordinación</small>
       </h1>
       
     </section>
@@ -235,7 +235,7 @@
           
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Maestros</h3>
+              <h3 class="box-title">Ver Encargados(as) de Clínica.</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

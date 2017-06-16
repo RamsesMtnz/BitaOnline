@@ -14,6 +14,7 @@ import DTO.MateriasDTO;
 import DTO.MenuTratamientoDTO;
 import DTO.NombreMaestroDTO;
 import DTO.SemestreDTO;
+import DTO.MateriaMaestroDTO;
 import DTO.TratamientoDTO;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
@@ -303,7 +304,7 @@ public class ConsultasMySQL {
 
     }
        
-       public static List<NombreMaestroDTO> MostrarNombreMaestros() {
+       public static List<NombreMaestroDTO> MostrarNombreMaestros() {   
 
         List<NombreMaestroDTO> maestro = new ArrayList<NombreMaestroDTO>();
         try {
@@ -319,6 +320,32 @@ public class ConsultasMySQL {
             }
 
             return maestro;
+
+        } catch (SQLException ex) {
+
+        }
+
+        return null;
+
+    }
+       
+       
+       public static List<MateriaMaestroDTO> MostrarMateriaMaestros() {   
+
+        List<MateriaMaestroDTO> materia = new ArrayList<MateriaMaestroDTO>();
+        try {
+            String query = "select nombre_completo FROM Maestro2";
+            Connection conexion = Conexionsql.Conexion();
+            st = conexion.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+
+                MateriaMaestroDTO detalles = new MateriaMaestroDTO(rs.getString("nombre_completo"));
+                materia.add(detalles);
+
+            }
+
+            return materia;
 
         } catch (SQLException ex) {
 

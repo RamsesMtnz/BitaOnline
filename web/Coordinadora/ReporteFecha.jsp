@@ -49,7 +49,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Odontlogia</b> FO</span>
+      <span class="logo-lg"><b>Odontología</b> FO</span>
     </a>
 
     <!-- Header Navbar -->
@@ -167,7 +167,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="VerMaestros.jsp">Ver Maestros</a></li>
-            <li><a href="AgregarMaestro.jsp">Aegregar maestro</a></li>
+            <li><a href="AgregarMaestro.jsp">Agregar maestro</a></li>
             <li><a href="EliminarMaestro.jsp">Quitar maestro</a></li>
           </ul>
         </li>
@@ -226,8 +226,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Maestros
-        <small>Cordinación</small>
+        Reportes
+        <small>Coordinación</small>
       </h1>
       
     </section>
@@ -236,7 +236,7 @@
     <section class="content">
 <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">Nuevo Maestro</h3>
+              <h3 class="box-title">Generar Reporte Por Fechas De Todas Las Clínicas</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -245,8 +245,8 @@
                     <div class="panel panel-default">
                        
                         <div class="panel-body">
-                           <form action="../GeneralPDF.jsp" method="post">
-                          <h5>   Generar Reporte por Fecha Limitada</h5>
+                           <form action="../reporteFechas.jsp" method="post">
+                          <h5>   Generar Reporte Por Fecha Limitada</h5>
                              <div class="row">
                                
                                  

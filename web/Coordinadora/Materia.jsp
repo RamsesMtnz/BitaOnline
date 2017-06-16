@@ -4,6 +4,7 @@
     Author     : Sammy Guergachi <sguergachi at gmail.com>
 --%>
 
+<%@page import="DTO.MateriaMaestroDTO"%>
 <%@page import="DTO.NombreMaestroDTO"%>
 <%@page import="Modelo.ConsultasMySQL"%>
 <%@page import="java.util.List"%>
@@ -229,8 +230,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Maestros
-        <small>Cordinación</small>
+        Materias
+        <small>Coordinación</small>
       </h1>
       
     </section>
@@ -261,7 +262,6 @@
                                     <label for="id_empleado">Maestro</label>
                                       <select class="form-control" name="maestro" id="sel1">
                                        
-                                        
                                                              <%
 
 		
@@ -313,10 +313,24 @@
                                  <div class="form-group">
                                     <label for="usuario">Materia</label>
                                      <select class="form-control" name="materia" id="sel1">
-                                        <option>Exodoncia</option>
-                                        <option>Operatoria Dental</option>
-                                        <option>Endodoncia</option>
-                                       
+                                        <%
+
+		
+		
+		List<MateriaMaestroDTO> detalle = ConsultasMySQL.MostrarMateriaMaestros();
+		for(int i=0; i<detalle.size();i++){
+		%>
+                <option><%=detalle.get(i).getMateria()%></option>
+                                      
+                                       
+                                        
+
+                                   
+                                    <% 
+	
+}	
+
+		%>
                                   </select>
                                 </div>  
                                 

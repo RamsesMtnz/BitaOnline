@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4c9741e5-2b82-470f-a116-fd7e773a6c86">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="6"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -83,8 +83,49 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#0000FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#0000FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
 	<subDataset name="con" uuid="79db8dbd-104b-49cd-9633-c375b9300b43">
-		<queryString language="SQL">
+		<queryString>
 			<![CDATA[select sum(cantidad) as cantidad,T1.matricula, T1.nombre, T1.apellido_paterno, T1.apellido_materno from alumnos T1  inner join
  bitacora_recibos T2 where T1.matricula=T2.alumno and T2.fecha between 
  '2017-01-01' and '2018-01-01' group by T1.apellido_paterno order by cantidad   desc limit 10]]>
@@ -105,6 +146,9 @@
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
 	</subDataset>
+	<subDataset name="Table Dataset 1" uuid="4b3fb87e-1fa2-4e2d-bd7e-edd4ce1efc3c"/>
+	<subDataset name="Table Dataset 2" uuid="c20ef248-e8ca-4bad-a02d-9a066d5fe9fb"/>
+	<subDataset name="dataset1" uuid="999a0841-d358-4b65-b804-e2c4ea0014db"/>
 	<parameter name="fecha1" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -112,9 +156,10 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select sum(cantidad) as cantidad,T1.matricula, T1.nombre, T1.apellido_paterno, T1.apellido_materno from alumnos T1  inner join
+		<![CDATA[
+select sum(cantidad) as cantidad,T1.matricula,T1.nombre_completo, T1.semestre, T1.grupo from alumnos T1  inner join
  bitacora_recibos T2 where T1.matricula=T2.alumno and T2.fecha between 
- $P{fecha1} and $P{fecha2} group by T1.apellido_paterno order by cantidad desc limit 10]]>
+ $P{fecha1} and $P{fecha2} group by T1.nombre_completo order by cantidad desc limit 10]]>
 	</queryString>
 	<field name="cantidad" class="java.math.BigDecimal">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -122,13 +167,13 @@
 	<field name="matricula" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="nombre" class="java.lang.String">
+	<field name="nombre_completo" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="apellido_paterno" class="java.lang.String">
+	<field name="semestre" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="apellido_materno" class="java.lang.String">
+	<field name="grupo" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<title>
@@ -177,114 +222,162 @@
 				<reportElement x="0" y="0" width="554" height="640" uuid="fe478048-1857-48eb-824e-a6aaac2ba17f"/>
 				<imageExpression><![CDATA["C:\\FONDO_PAGG_FDO RENDER LOGO-01.png"]]></imageExpression>
 			</image>
-			<componentElement>
-				<reportElement key="table 3" style="table 3" mode="Transparent" x="0" y="0" width="554" height="640" uuid="26efaef5-c510-4e16-9e68-03e8131f7457"/>
-				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="con" uuid="7bf3ca1a-4b8a-4618-b1cf-d91decf85fe5">
-						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					</datasetRun>
-					<jr:column width="90" uuid="d646f415-ec6c-4861-95e7-8ee1ca0b620c">
-						<jr:columnHeader style="table 3_CH" height="31" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="4473ec13-5215-41ad-9d9d-e02ac8a9b621"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
-								</textElement>
-								<text><![CDATA[Cantidad]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+			<crosstab>
+				<reportElement x="0" y="0" width="555" height="640" uuid="a735c97c-72c3-4903-8b4b-03490aca5ead"/>
+				<rowGroup name="nombre_completo" width="70" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{nombre_completo}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
 							<textField>
-								<reportElement x="0" y="0" width="90" height="30" uuid="1dc6448a-35e1-43b6-8c39-c0ed6dc1a4f7"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="25" uuid="41f53611-d034-4e5a-b12a-e1ac594017fd"/>
+								<textFieldExpression><![CDATA[$V{nombre_completo}]]></textFieldExpression>
 							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="693c9bc2-5bc5-427c-b2a7-441159a51453">
-						<jr:columnHeader style="table 3_CH" height="31" rowSpan="1">
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
 							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="f2d2bf68-18b4-4fcf-a91c-8c6fea72dd8f"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
-								</textElement>
-								<text><![CDATA[Matricula]]></text>
+								<reportElement x="0" y="0" width="70" height="25" uuid="e73e98fe-bb0f-4a5b-8f3d-ce5739caa29d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[Total nombre_completo]]></text>
 							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="cantidad" height="30" totalPosition="End">
+					<bucket class="java.math.BigDecimal">
+						<bucketExpression><![CDATA[$F{cantidad}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
 							<textField>
-								<reportElement x="0" y="0" width="90" height="30" uuid="482b63eb-59aa-4fc7-a859-c5d9dc8f9449"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{matricula}]]></textFieldExpression>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="30" uuid="377f44ed-936e-42b8-8004-d568d12887ad"/>
+								<textFieldExpression><![CDATA[$V{cantidad}]]></textFieldExpression>
 							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="126" uuid="c4ec6b0c-6c4c-4598-aaa5-e1acfc59df3b">
-						<jr:columnHeader style="table 3_CH" height="31" rowSpan="1">
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#005FB3" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
 							<staticText>
-								<reportElement x="0" y="0" width="126" height="30" uuid="ebf15899-643b-4736-81d4-fbddf22dd05b"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
-								</textElement>
-								<text><![CDATA[Nombre]]></text>
+								<reportElement x="0" y="0" width="50" height="60" forecolor="#FFFFFF" uuid="5a04bf21-e070-4d54-a94d-130e7d11c878"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[Total cantidad]]></text>
 							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<columnGroup name="matricula" height="30" totalPosition="End">
+					<bucket class="java.lang.Integer">
+						<bucketExpression><![CDATA[$F{matricula}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
 							<textField>
-								<reportElement x="0" y="0" width="126" height="30" uuid="35386f50-2584-4b3d-ae72-5b19a31fbedd"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="30" uuid="e8d93706-e661-4494-9283-076feb03c390"/>
+								<textFieldExpression><![CDATA[$V{matricula}]]></textFieldExpression>
 							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="131" uuid="cd8a1301-5018-4788-bc71-6c99f6ef2ae6">
-						<jr:columnHeader style="table 3_CH" height="31" rowSpan="1">
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
 							<staticText>
-								<reportElement x="0" y="0" width="131" height="30" uuid="bd5731e9-89ef-4c58-a2aa-b0f4d9d6e879"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
-								</textElement>
-								<text><![CDATA[Apellido paterno]]></text>
+								<reportElement x="0" y="0" width="50" height="30" uuid="ebcdbc7b-3bec-4e93-b78c-7d2186e7b89c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[Total matricula]]></text>
 							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="131" height="30" uuid="37adbc0d-535e-4bc7-87e9-dfa68c1fd1f0"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{apellido_paterno}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="117" uuid="de4a65cb-c9e6-4ca5-b273-7d59794b0b6c">
-						<jr:columnHeader style="table 3_CH" height="31" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="117" height="30" uuid="6d002255-b866-487b-aa9d-2dba02d22277"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
-								</textElement>
-								<text><![CDATA[Apellido materno]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="table 3_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="117" height="30" uuid="aca558e6-ccd1-4d3d-9756-ba0a95bb1322"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12"/>
-								</textElement>
-								<textFieldExpression><![CDATA[$F{apellido_materno}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-				</jr:table>
-			</componentElement>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="cantidadMeasure" class="java.lang.Integer" calculation="Count">
+					<measureExpression><![CDATA[$F{cantidad}]]></measureExpression>
+				</measure>
+				<crosstabCell width="50" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="17dc2500-da4e-4242-bc32-d9e62737ed08"/>
+							<textFieldExpression><![CDATA[$V{cantidadMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="25" rowTotalGroup="nombre_completo">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="2abf8fc1-a6a8-43d7-9e89-155b8c8b155d"/>
+							<textFieldExpression><![CDATA[$V{cantidadMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="cantidad">
+					<cellContents backcolor="#005FB3" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" forecolor="#FFFFFF" uuid="1622c6ef-caae-4189-9083-a553212c5b86"/>
+							<textFieldExpression><![CDATA[$V{cantidadMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="nombre_completo" columnTotalGroup="cantidad">
+					<cellContents backcolor="#005FB3" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" forecolor="#FFFFFF" uuid="2255656e-64fc-4bd0-a32e-16402d9ce8be"/>
+							<textFieldExpression><![CDATA[$V{cantidadMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="matricula">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="9d2505f6-c13e-4a62-8f84-19a6cdcb1079"/>
+							<textFieldExpression><![CDATA[$V{cantidadMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="nombre_completo" columnTotalGroup="matricula">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="a502c575-007a-4638-a46f-ff90ce233f1b"/>
+							<textFieldExpression><![CDATA[$V{cantidadMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
 		</band>
 	</columnFooter>
 	<pageFooter>
