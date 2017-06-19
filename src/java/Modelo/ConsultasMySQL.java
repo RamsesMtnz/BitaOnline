@@ -334,13 +334,13 @@ public class ConsultasMySQL {
 
         List<MateriaMaestroDTO> materia = new ArrayList<MateriaMaestroDTO>();
         try {
-            String query = "select nombre_completo FROM Maestro2";
+            String query = "select * FROM materias";
             Connection conexion = Conexionsql.Conexion();
             st = conexion.createStatement();
             rs = st.executeQuery(query);
             while (rs.next()) {
 
-                MateriaMaestroDTO detalles = new MateriaMaestroDTO(rs.getString("nombre_completo"));
+                MateriaMaestroDTO detalles = new MateriaMaestroDTO(rs.getString("materia"));
                 materia.add(detalles);
 
             }
