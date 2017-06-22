@@ -42,7 +42,7 @@
     <!-- Logo -->
     <a href="PrincipalCoordinadora.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>OD</b>FO</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Odontologia</b> FO</span>
     </a>
@@ -155,15 +155,15 @@
         <li class="header">INICIO</li>
         <!-- Optionally, you can add icons to the links -->
 <li class="treeview">
-          <a href="mtro.htm"><i class="glyphicon glyphicon-user"></i> <span>Maestros</span>
+          <a href="mtro.htm"><i class="glyphicon glyphicon-user"></i> <span>Docentes</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="VerMaestros.jsp">Ver Maestros</a></li>
-            <li><a href="AgregarMaestro.jsp">Agregar maestro</a></li>
-            <li><a href="EliminarMaestro.jsp">Quitar maestro</a></li>
+          <li><a href="VerMaestros.jsp">Ver Docentes</a></li>
+            <li><a href="AgregarMaestro.jsp">Agregar Docente</a></li>
+            <li><a href="EliminarMaestro.jsp">Quitar Docente</a></li>
           </ul>
         </li>
 
@@ -187,7 +187,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-           <li><a href="Materia.jsp">Asignar Materia a Maestro</a></li>
+           <li><a href="Materia.jsp">Asignar Materia a Docente</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -239,24 +239,23 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                   <th>Id empleado</th>
-                                            <th>Nombre</th>
-                                            <th>Apellido Paterno</th>
-                                            <th>Apellido Materno</th>
-                                            <th>Clinica</th>
-                                            <th>Turno</th>
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id empleado</th>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Clinica</th>
+                            <th>Turno</th>
                
-                </tr>
-                </thead>
-                 <tbody>
+                        </tr>
+                    </thead>
+                    <tbody>
                                     <%
-
-                                            List<EncargadaDTO> detalles = ConsultasMySQL.MostrarEncargada();
+                                        List<EncargadaDTO> detalles = ConsultasMySQL.MostrarEncargada();
                                             for (int i = 0; i < detalles.size(); i++) {
-                                        %>
+                                    %>
                                         <tr class="odd gradeX">
                                             <td><%=detalles.get(i).getId_empleado()%></td>
                                             <td><%=detalles.get(i).getNombre()%></td>
@@ -271,7 +270,7 @@
                                             }
 
                                         %>
-                                </tbody>
+                    </tbody>
                 
               </table>
             </div>

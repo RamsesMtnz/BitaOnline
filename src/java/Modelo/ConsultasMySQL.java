@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+
 import DTO.AlumnoMateriasDTO;
 import DTO.AlumnosBitacoraDTO;
 import DTO.AlumnosDTO;
@@ -14,6 +15,7 @@ import DTO.MateriasDTO;
 import DTO.MenuTratamientoDTO;
 import DTO.NombreMaestroDTO;
 import DTO.SemestreDTO;
+import DTO.MatriculaMaestroDTO;
 import DTO.MateriaMaestroDTO;
 import DTO.TratamientoDTO;
 
@@ -354,6 +356,34 @@ public class ConsultasMySQL {
         return null;
 
     }
+       
+       
+       
+        public static List<MatriculaMaestroDTO> matricula(String name) {   
+
+        List<MatriculaMaestroDTO> id = new ArrayList<MatriculaMaestroDTO>();
+        try {
+            String query = "SELECT id_empleado FROM maestro2 where nombre_completo="+name;
+            Connection conexion = Conexionsql.Conexion();
+            st = conexion.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+
+                MatriculaMaestroDTO detalle = new MatriculaMaestroDTO(rs.getString("id_empleado"));
+                id.add(detalle);
+
+            }
+
+            return id;
+
+        } catch (SQLException ex) {
+
+        }
+
+        return null;
+
+    }
+       
        
         public static List<AlumnoMateriasDTO> MostrarAlumnosMaterias(String materia,String semestre,String grupo) {
 

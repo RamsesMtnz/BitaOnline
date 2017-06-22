@@ -43,9 +43,9 @@
     <!-- Logo -->
     <a href="Maestro.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>OD</b>FO</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Odontlogia</b> FO</span>
+      <span class="logo-lg"><b>Odontología</b> FO</span>
     </a>
 
     <!-- Header Navbar -->
@@ -163,9 +163,19 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="VerAlumnos.jsp">Ver Alumnos</a></li>
-            <li><a href="AgregarAlumnos.jsp">Aegregar Alumnos</a></li>
-            <li><a href="mtro2.html"> Tratamientos Realizados</a></li>
+            <li><a href="AgregarAlumnos.jsp">Agregar Alumnos</a></li>
+            <li><a href="#"> Tratamientos Realizados</a></li>
           </ul>
+        </li>
+        <li>
+            <a href="mtro.htm"><i class="fa fa-fw fa-file-text-o"></i> <span>Lista</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+              <li><a href="#">Generar Listas</a></li>
+              </ul>
         </li>
 
       
@@ -189,8 +199,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Maestros
-        <small>Cordinación</small>
+        Alumnos
+        <small>Maestro</small>
       </h1>
       
     </section>
@@ -200,7 +210,7 @@
 <section class="content">
       <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Lista de Alumnos</h1>
+                        <h1 class="page-header">Agregar Alumnos a una Lista</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

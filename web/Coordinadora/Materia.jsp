@@ -4,6 +4,7 @@
     Author     : Sammy Guergachi <sguergachi at gmail.com>
 --%>
 
+<%@page import="DTO.MatriculaMaestroDTO"%>
 <%@page import="DTO.MateriaMaestroDTO"%>
 <%@page import="DTO.NombreMaestroDTO"%>
 <%@page import="Modelo.ConsultasMySQL"%>
@@ -51,9 +52,9 @@
     <!-- Logo -->
     <a href="PrincipalCoordinadora.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>OD</b>FO</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Odontlogia</b> FO</span>
+      <span class="logo-lg"><b>Odontología</b> FO</span>
     </a>
 
     <!-- Header Navbar -->
@@ -164,15 +165,15 @@
         <li class="header">INICIO</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="treeview">
-          <a href="#"><i class="glyphicon glyphicon-user"></i> <span>Maestros</span>
+          <a href="#"><i class="glyphicon glyphicon-user"></i> <span>Docentes</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="VerMaestros.jsp">Ver Maestros</a></li>
-            <li><a href="AgregarMaestro.jsp">Aegregar maestro</a></li>
-            <li><a href="EliminarMaestro.jsp">Quitar maestro</a></li>
+          <li><a href="VerMaestros.jsp">Ver Docentes</a></li>
+            <li><a href="AgregarMaestro.jsp">Agregar Docente</a></li>
+            <li><a href="EliminarMaestro.jsp">Quitar Docente</a></li>
           </ul>
         </li>
 
@@ -196,7 +197,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-             <li><a href="Materia.jsp">Asignar Materia a Maestro</a></li>>
+             <li><a href="Materia.jsp">Asignar Materia a Docente</a></li>>
           </ul>
         </li>
          <li class="treeview">
@@ -240,7 +241,7 @@
     <section class="content">
 <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">Asignar Materia a Maestro</h3>
+              <h3 class="box-title">Asignar Materia a Docente</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -259,7 +260,7 @@
                                 <div class="col-md-4">                    
                                 
                                 <div class="form-group">
-                                    <label for="id_empleado">Maestro</label>
+                                    <label for="id_empleado">Docente</label>
                                       <select class="form-control" name="maestro" id="sel1">
                                        
                                                              <%
@@ -271,19 +272,14 @@
 		%>
                 <option><%=detalles.get(i).getNombre()%></option>
                                       
-                                       
-                                        
-
                                    
                                     <% 
 	
 }	
-
 		%>
                                   </select>
                                 </div>
                                 
-                            
                                 </div>  
 
                                  <div class="col-md-4">                    
@@ -291,9 +287,9 @@
                                  <div class="form-group">
                                     <label for="nombre">Matricula</label>
                                     <input type="text" name="matricula" maxlength="30" id="idEmpleado" class="form-control" >
-                                </div>  
+                              
+                                 </div>  
                                 
-                            
                                 </div> 
                                 
                                  <div class="col-md-4">                    
@@ -301,7 +297,7 @@
                                  <div class="form-group">
                                     <label for="nombre">usuario</label>
                                     <input type="text" name="usuario" maxlength="30" id="idEmpleado" class="form-control" >
-                                </div>  
+                                 </div>  
                                 
                             
                                 </div> 
@@ -314,22 +310,15 @@
                                     <label for="usuario">Materia</label>
                                      <select class="form-control" name="materia" id="sel1">
                                         <%
-
 		
-		
-		List<MateriaMaestroDTO> detalle = ConsultasMySQL.MostrarMateriaMaestros();
-		for(int i=0; i<detalle.size();i++){
+		List<MateriaMaestroDTO> detalle2 = ConsultasMySQL.MostrarMateriaMaestros();
+		for(int o=0; o<detalle2.size();o++){
 		%>
-                <option><%=detalle.get(i).getMateria()%></option>
+                <option><%=detalle2.get(o).getMateria()%></option>
                                       
-                                       
-                                        
-
-                                   
                                     <% 
 	
 }	
-
 		%>
                                   </select>
                                 </div>  
@@ -377,13 +366,8 @@
                                 
                                  <div class="form-group">
                                     <label for="correo">Año</label>
-                                         <select class="form-control" name="año" id="sel1">
-                                        <option>2017</option>
-                                        <option>2018</option>
-                                        <option>2019</option>
-                                        
-                                        
-                                  </select>
+                                         <input type="text" name="año" maxlength="30" id="año   " class="form-control" >
+                              
                                 </div>  
                                 
                             

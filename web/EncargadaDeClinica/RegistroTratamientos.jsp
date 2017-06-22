@@ -74,7 +74,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Odontlogia</b> FO</span>
+      <span class="logo-lg"><b>Odontología</b> FO</span>
     </a>
 
     <!-- Header Navbar -->
@@ -219,7 +219,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Maestros
+        Encargada de Clínica
         <small>Cordinación</small>
       </h1>
       

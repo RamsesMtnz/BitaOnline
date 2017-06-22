@@ -13,7 +13,7 @@
  <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Ver Maestros</title>
+  <title>Ver Docentes</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -41,7 +41,7 @@
     <!-- Logo -->
     <a href="PrincipalCoordinadora.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>OD</b>FO</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Odontología</b> FO</span>
     </a>
@@ -154,15 +154,15 @@
         <li class="header">INICIO</li>
         <!-- Optionally, you can add icons to the links -->
 <li class="treeview active">
-          <a href="mtro.htm"><i class="glyphicon glyphicon-user"></i> <span>Maestros</span>
+          <a href="mtro.htm"><i class="glyphicon glyphicon-user"></i> <span>Docentes</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="VerMaestros.jsp">Ver Maestros</a></li>
-            <li><a href="AgregarMaestro.jsp">Agregar maestro</a></li>
-            <li><a href="EliminarMaestro.jsp">Quitar maestro</a></li>
+          <li><a href="VerMaestros.jsp">Ver Docentes</a></li>
+            <li><a href="AgregarMaestro.jsp">Agregar Docente</a></li>
+            <li><a href="EliminarMaestro.jsp">Quitar Docente</a></li>
           </ul>
         </li>
 
@@ -186,7 +186,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-           <li><a href="Materia.jsp">Asignar Materia a Maestro</a></li>
+           <li><a href="Materia.jsp">Asignar Materia a Docente</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -220,7 +220,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Maestros
+        Docentes
         <small>Coordinación</small>
       </h1>
       
@@ -234,14 +234,14 @@
           
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Ver Maestros</h3>
+              <h3 class="box-title">Ver Docentes</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Id Maestro</th>
+                  <th>Id Docente</th>
                   <th>Nombre Completo</th>
                   <th>Correo</th>
                

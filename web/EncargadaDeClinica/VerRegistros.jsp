@@ -16,7 +16,7 @@
     <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Ver Maestros</title>
+  <title>Registro de Tratamientos</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -41,11 +41,11 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="PrincipalCoordinadora.jsp" class="logo">
+    <a href="EncargadaDeClinica.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>OD</b>FO</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Odontlogia</b> FO</span>
+      <span class="logo-lg"><b>Odontología</b> FO</span>
     </a>
 
     <!-- Header Navbar -->
@@ -133,7 +133,7 @@
           <img src="../img/fo_web_logo.png"  alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Coordinadora</p>
+          <p>Encargada de Clínica</p>
           <!-- Status -->
           
         </div>
@@ -187,6 +187,14 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
       
+      <section class="content-header">
+      <h1>
+        Registro de Tratamientos
+        <small>Encargada De Clinica</small>
+      </h1>
+      
+    </section>
+      
       <section class="content">
 <div class="box box-warning">
             <div class="box-header with-border">
@@ -206,7 +214,7 @@
                                 <div class="col-md-3">                    
                                 
                                  <div class="form-group">
-                                   <label for="id_empleado">Maestro</label>
+                                   <label for="id_empleado">Docente</label>
                                       <select class="form-control" name="maestro" id="sel1">
                                        
                                         

@@ -12,7 +12,7 @@
         <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Registrar Tratamientos</title>
+  <title>Nuevo Tratamiento</title>
   
    <script type="text/javascript">
         
@@ -70,11 +70,11 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="PrincipalCoordinadora.jsp" class="logo">
+    <a href="EncargadaDeClinica/EncargadaDeClinica.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>OD</b>FO</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Odontlogia</b> FO</span>
+      <span class="logo-lg"><b>Odontología</b> FO</span>
     </a>
 
     <!-- Header Navbar -->
@@ -219,8 +219,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Maestros
-        <small>Cordinación</small>
+        Registro de Tratamientos
+        <small>Encargada De Clinica</small>
       </h1>
       
     </section>
@@ -229,7 +229,7 @@
     <section class="content">
 <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">Nuevo Maestro</h3>
+              <h3 class="box-title">Nuevo Tratamiento</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -246,13 +246,12 @@
                                                                     <div class="form-group">
                                                <label for="alumno">Tratamiento:</label>    
                                 <select name="id_tratamiento" id="id_tratamiento" class="form-control" onchange="obtenerMenuTratamiento(this.value)">
-		            				<% 
-		            					List<TratamientoDTO> listaTratamiento = 
-		            						(List<TratamientoDTO>) request.getAttribute("listaTratamiento");
-		            					for(TratamientoDTO estadoDTO : listaTratamiento){
-		            						out.print("<option value=" +estadoDTO.getId_tratamiento()+">" + estadoDTO.getTratamiento());
-		            					}
-		            				%>
+                            <% 
+                                    List<TratamientoDTO> listaTratamiento = (List<TratamientoDTO>) request.getAttribute("listaTratamiento");
+                                    for(TratamientoDTO estadoDTO : listaTratamiento){
+                                            out.print("<option value=" +estadoDTO.getId_tratamiento()+">" + estadoDTO.getTratamiento());
+                                    }
+                            %>
 		            			</select>
                                                                     </div>
                                         
@@ -260,7 +259,6 @@
                                 
                                  <div class="form-group">
                                     <select name="tratamiento" id="tratamiento" class="form-control" >
-		            				
 		            			</select>	
                                 </div>  
                                 

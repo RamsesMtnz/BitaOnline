@@ -47,7 +47,7 @@
     <!-- Logo -->
     <a href="PrincipalCoordinadora.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>OD</b>FO</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Odontología</b> FO</span>
     </a>

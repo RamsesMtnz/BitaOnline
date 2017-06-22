@@ -10,7 +10,7 @@
      <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Nuevo Maestro</title>
+  <title>Reporte Gral.</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -47,7 +47,7 @@
     <!-- Logo -->
     <a href="PrincipalCoordinadora.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>OD</b>FO</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Odontología</b> FO</span>
     </a>
@@ -160,15 +160,15 @@
         <li class="header">INICIO</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="treeview">
-          <a href="mtro.htm"><i class="glyphicon glyphicon-user"></i> <span>Maestros</span>
+          <a href="mtro.htm"><i class="glyphicon glyphicon-user"></i> <span>Docentes</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="VerMaestros.jsp">Ver Maestros</a></li>
-            <li><a href="AgregarMaestro.jsp">Agregar maestro</a></li>
-            <li><a href="EliminarMaestro.jsp">Quitar maestro</a></li>
+          <li><a href="VerMaestros.jsp">Ver Docentes</a></li>
+            <li><a href="AgregarMaestro.jsp">Agregar Docente</a></li>
+            <li><a href="EliminarMaestro.jsp">Quitar Docente</a></li>
           </ul>
         </li>
 
@@ -192,7 +192,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="Materia.jsp">Asignar Materia a Maestro</a></li>
+            <li><a href="Materia.jsp">Asignar Materia a Docentes</a></li>
           </ul>
         </li>
          <li class="treeview active">
@@ -246,8 +246,8 @@
                        
                         <div class="panel-body">
                            <form action="../GeneralPDF.jsp" method="post">
-                           <h5>   A continuacion generara un reporte completo analizando los datos de la
-                                facultad de Odontologia desde que se implemento esta pagina en la misma </h5>
+                           <h5>   A continuación se generará un reporte completo, analizando los datos de la
+                                Facultad de Odontología desde que se implementó ésta página hasta el día de hoy.</h5>
                              <div class="row">
                                 <div class="col-md-4">                    
                                 
